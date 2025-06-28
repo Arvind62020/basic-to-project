@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Imag from '../assets/icon-img.jpeg';
-import TourPlanMenu from '../pages/SubPage/menu/TourPlaneMenu';
+import TourPlanMenu from '../pages/SubPage/Menus/TourPlaneMenu';
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
