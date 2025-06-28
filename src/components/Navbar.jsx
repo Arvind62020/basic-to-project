@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Imag from '../assets/icon-img.jpeg';
+import TourPlanMenu from '../pages/SubPage/menu/TourPlaneMenu';
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,7 +11,8 @@ function Navbar() {
 
   return (
     <>
-      <div className="navbar bg-base-100 shadow-sm">
+      {/* Added fixed, top-0, w-full, and z-50 classes to navbar */}
+      <div className="navbar fixed top-0 w-full bg-base-100 shadow-sm z-50">
         <div className="flex-1">
           <a><img className='w-12 h-12 m-4' src={Imag} alt="Logo" /></a>
         </div>
@@ -20,7 +22,7 @@ function Navbar() {
           <div>
             <ul className="flex flex-row justify-between gap-5 cursor-pointer">
               <li className="hover:text-primary">Home</li>
-              <li className="hover:text-primary">Tour Plan</li>
+              <li className="hover:text-primary"><TourPlanMenu /></li>
               <li className="hover:text-primary">Contact us</li>
               <li className="hover:text-primary">About Us</li>
               <li>
@@ -30,7 +32,6 @@ function Navbar() {
               </li>
             </ul>
           </div>
-          
         </div>
         
         {/* Mobile Hamburger Menu Button */}
@@ -48,8 +49,9 @@ function Navbar() {
       </div>
       
       {/* Mobile Navigation Menu - Full width below navbar */}
+      {/* Added mt-16 to account for fixed navbar height */}
       {isMenuOpen && (
-        <div className="md:hidden w-full bg-base-100 shadow-md">
+        <div className="md:hidden w-full bg-base-100 shadow-md mt-16 fixed z-40">
           <ul className="flex flex-col items-center space-y-4 py-4">
             <li className="w-full text-center hover:bg-gray-100 hover:text-black py-2"><a>Home</a></li>
             <li className="w-full text-center hover:bg-gray-100 hover:text-black py-2"><a>Tour Plan</a></li>
@@ -63,6 +65,9 @@ function Navbar() {
           </ul>
         </div>
       )}
+      
+      {/* Add padding to the main content to prevent navbar overlap */}
+      <div className="pt-16"></div>
     </>
   );
 }
